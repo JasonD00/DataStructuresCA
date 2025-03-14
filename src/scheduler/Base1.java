@@ -15,7 +15,10 @@ public class Base1 extends javax.swing.JFrame {
      */
     public Base1() {
         initComponents();
-      
+      PatientListP.setVisible(false);
+       RegisterP.setVisible(false);
+        SchedulingP.setVisible(false);
+         AdminP.setVisible(false);
     }
 
     /**
@@ -42,9 +45,9 @@ public class Base1 extends javax.swing.JFrame {
         PatientListB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         RegisterP = new javax.swing.JPanel();
-        PatientListP = new javax.swing.JPanel();
-        SchedulingP = new javax.swing.JPanel();
         AdminP = new javax.swing.JPanel();
+        SchedulingP = new javax.swing.JPanel();
+        PatientListP = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,10 +156,20 @@ public class Base1 extends javax.swing.JFrame {
 
         ScheduleB.setText("Scheduling");
         ScheduleB.setToolTipText("View The Shedule");
+        ScheduleB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ScheduleBMouseClicked(evt);
+            }
+        });
         Home.add(ScheduleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 140, -1));
 
         AdminB.setText("Admin Controls");
         AdminB.setToolTipText("Administrator Controls");
+        AdminB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdminBMouseClicked(evt);
+            }
+        });
         AdminB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminBActionPerformed(evt);
@@ -175,6 +188,11 @@ public class Base1 extends javax.swing.JFrame {
 
         PatientListB.setText("Patient List");
         PatientListB.setToolTipText("View Patients Here");
+        PatientListB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PatientListBMouseClicked(evt);
+            }
+        });
         Home.add(PatientListB, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 140, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/HelpD.jpg"))); // NOI18N
@@ -193,7 +211,29 @@ public class Base1 extends javax.swing.JFrame {
             .addGap(0, 530, Short.MAX_VALUE)
         );
 
-        Home.add(RegisterP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
+        AdminP.setBackground(new java.awt.Color(0, 204, 153));
+
+        javax.swing.GroupLayout AdminPLayout = new javax.swing.GroupLayout(AdminP);
+        AdminP.setLayout(AdminPLayout);
+        AdminPLayout.setHorizontalGroup(
+            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 960, Short.MAX_VALUE)
+        );
+        AdminPLayout.setVerticalGroup(
+            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 530, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout SchedulingPLayout = new javax.swing.GroupLayout(SchedulingP);
+        SchedulingP.setLayout(SchedulingPLayout);
+        SchedulingPLayout.setHorizontalGroup(
+            SchedulingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 960, Short.MAX_VALUE)
+        );
+        SchedulingPLayout.setVerticalGroup(
+            SchedulingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 530, Short.MAX_VALUE)
+        );
 
         PatientListP.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -208,43 +248,55 @@ public class Base1 extends javax.swing.JFrame {
             .addGap(0, 530, Short.MAX_VALUE)
         );
 
-        Home.add(PatientListP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
-
-        javax.swing.GroupLayout SchedulingPLayout = new javax.swing.GroupLayout(SchedulingP);
-        SchedulingP.setLayout(SchedulingPLayout);
-        SchedulingPLayout.setHorizontalGroup(
-            SchedulingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 960, Short.MAX_VALUE)
-        );
-        SchedulingPLayout.setVerticalGroup(
-            SchedulingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
-        );
-
-        Home.add(SchedulingP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
-
-        javax.swing.GroupLayout AdminPLayout = new javax.swing.GroupLayout(AdminP);
-        AdminP.setLayout(AdminPLayout);
-        AdminPLayout.setHorizontalGroup(
-            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 960, Short.MAX_VALUE)
-        );
-        AdminPLayout.setVerticalGroup(
-            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
-        );
-
-        Home.add(AdminP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(RegisterP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AdminP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(SchedulingP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PatientListP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(RegisterP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AdminP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(SchedulingP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PatientListP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -257,10 +309,33 @@ public class Base1 extends javax.swing.JFrame {
     private void PatientRegBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PatientRegBMouseClicked
     RegisterP.setVisible(true);
      Home.setVisible(false);
-    
+      
     
         // TODO add your handling code here:
     }//GEN-LAST:event_PatientRegBMouseClicked
+
+    private void PatientListBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PatientListBMouseClicked
+        PatientListP.setVisible(true);
+        Home.setVisible(false);
+          
+      
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PatientListBMouseClicked
+
+    private void ScheduleBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ScheduleBMouseClicked
+        SchedulingP.setVisible(true);
+         Home.setVisible(false);
+         
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ScheduleBMouseClicked
+
+    private void AdminBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminBMouseClicked
+        AdminP.setVisible(true);
+         Home.setVisible(false);
+         
+         
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdminBMouseClicked
 
     /**
      * @param args the command line arguments
