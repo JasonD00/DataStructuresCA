@@ -17,7 +17,7 @@ public class Patient implements Schedule, Serializable{
     private String priority;
     private boolean hospitalRoom;
     
-    //Basic Patient details 
+    //Basic Patient details (4 parameteres)
     public Patient (String name, int age, String priority, boolean hospitalRoom) {
         this.name = name;
         this.age = age;
@@ -28,22 +28,31 @@ public class Patient implements Schedule, Serializable{
     //placehlder methods for now might add getdetails to patient attributes later 
     @Override
     public void scheduleTest() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       System.out.println(name + " has been updated for a blood test.");
     }
 
     @Override
     public void updatePriority(String newPrior) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.priority = newPrior;
+         System.out.println(name + " priority has been updated to " + newPrior);
     }
 
     @Override
     public void cancelTest() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       System.out.println(name + " has canceled their test.");
     }
 
     @Override
     public void rescheduleTest() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println(name + " has been resheduled");
     }
-    
+    // Getter methods to retrieve the patients details
+    public String getName() {
+        return name;}
+   
+    public int getAge() {
+        return age;}
+   
+    public String getPriority() {
+        return priority;}
 }
