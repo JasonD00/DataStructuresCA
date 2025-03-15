@@ -4,6 +4,11 @@
  */
 package scheduler;
 
+import java.util.LinkedList;
+import javax.swing.table.DefaultTableModel;
+import scheduler.Patient;
+import scheduler.PatientManager;
+
 /**
  *
  * @author Jason
@@ -15,6 +20,7 @@ public class Base1 extends javax.swing.JFrame {
      */
     public Base1() {
         initComponents();
+        loadA();
       PatientListP.setVisible(false);
        RegisterP.setVisible(false);
         SchedulingP.setVisible(false);
@@ -604,32 +610,47 @@ public class Base1 extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_returnRegisterPMouseClicked
 
+    //Load data from LL into the Jtable on home
+    private void loadA() {
+        Object [] result = PatientManager.loadD(); //grabbing the patient list from dat
+        
+        //check here if result 0 is our linked list 
+        if (result[0] instanceof LinkedList) {
+            LinkedList<Patient>  patientList = (LinkedList<Patient>) result[0];
+            
+            //for adding to the table and make sure it can be populated with new updated data 
+            DefaultTableModel model = (DefaultTableModel) AppointmentT.getModel();
+            model.setRowCount(0); //clear any existing data
+            
+            //adding data from the patient list
+            for (Patient p : patientList) {
+                Object[] row = {p.getName(), p.getAge(), p.getPriority(), p.getRoom()};
+                model.addRow(row);
+            }
+            
+            
+        } else {
+            System.out.println("Error");
+        }
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Base1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Base1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Base1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Base1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+      
+        LinkedList<Patient> patientList = new LinkedList<>();
+        
+       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
+       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
+       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
+       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
+       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
+        
+        
+       PatientManager.saveD(patientList);
+       System.out.println(" success");
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -8,6 +8,13 @@ package scheduler;
  *
  * @author Jason
  */
-public class Manager {
+
+//For the Admin Controls
+public interface Manager {
+        void removePatient(String name); //remove the patient 
+        void undoLastRemovePatient(String name); //undo the last removal for a audit log 
+        void trackNoShows(String name); //Track the no shows
+        void saveD(); //save data to dat file
+        void loadD(); //remove data from dat file
     
 }

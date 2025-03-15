@@ -17,13 +17,13 @@ public class Patient implements Schedule, Serializable{
     private String priority;
     private boolean hospitalRoom;
     
-    //Basic Patient details (4 parameteres)
-    public Patient (String name, int age, String priority, boolean hospitalRoom) {
-        this.name = name;
-        this.age = age;
-        this.priority = priority;
-        this.hospitalRoom = hospitalRoom;
-    }
+        //Basic Patient details (4 parameteres)
+        public Patient (String name, int age, String priority, boolean hospitalRoom) {
+            this.name = name;
+            this.age = age;
+            this.priority = priority;
+            this.hospitalRoom = hospitalRoom;
+        }
 
     //placehlder methods for now might add getdetails to patient attributes later 
     @Override
@@ -55,4 +55,8 @@ public class Patient implements Schedule, Serializable{
    
     public String getPriority() {
         return priority;}
+    
+    public boolean getRoom() {
+        return hospitalRoom;
+    }
 }
