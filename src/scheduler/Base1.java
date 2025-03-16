@@ -5,6 +5,9 @@
 package scheduler;
 
 import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
 import javax.swing.table.DefaultTableModel;
 import scheduler.Patient;
 import scheduler.PatientManager;
@@ -650,6 +653,9 @@ public class Base1 extends javax.swing.JFrame {
     public static void main(String args[]) {
       
         LinkedList<Patient> patientList = new LinkedList<>();
+        PriorityQueue<Patient> patientQueue = new PriorityQueue<>();
+        Queue<String> noShowQueue = new LinkedList<>();
+        Stack<Patient> undoStack = new Stack<>();
         
        patientList.add(new Patient("John Dee", 25, "Urgent", false ));
        patientList.add(new Patient("Josh Boyne", 22, "Minor", true ));
@@ -657,9 +663,10 @@ public class Base1 extends javax.swing.JFrame {
        patientList.add(new Patient("Ryan Sher", 20, "Minor", false ));
        patientList.add(new Patient("Ciara Park", 45, "Urgent", false ));
        
-        
-        
-       PatientManager.saveD(patientList);
+       patientQueue.addAll(patientList); // adding patients ot the priority queue
+       
+        //Saving data to the dat file
+       PatientManager.saveD(patientList, patientQueue, noShowQueue, undoStack);
        System.out.println(" success");
 
         /* Create and display the form */

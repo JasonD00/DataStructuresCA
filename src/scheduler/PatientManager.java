@@ -40,16 +40,17 @@ public class PatientManager {
             }
         }
         
+                //loading from the file
         public static Object[] loadD() {
             File file = new File(File_Name);
-            if (!file.exists()) return new Object[] {new LinkedList<>()} ;
+            if (!file.exists()) return new Object[] {new LinkedList<>(), new PriorityQueue<>(), new LinkedList<>(), new Stack<>()} ;
             
             try (ObjectInputStream obIn = new ObjectInputStream(new FileInputStream(File_Name))) {
-                return new Object[]{(LinkedList<Patient>) obIn.readObject()};
+                return new Object[]{(LinkedList<Patient>) obIn.readObject(), (PriorityQueue<Patient>) obIn.readObject(), (Queue<String>) obIn.readObject(),(Stack<Patient>) obIn.readObject() };
                 
             } catch (IOException | ClassNotFoundException e) {
                     System.out.println("Error " + e.getMessage());
-                    return new Object[] {new LinkedList<>()};
+                    return new Object[] {new LinkedList<>(), new PriorityQueue<>(), new LinkedList<>(), new Stack<>()};
                     }
         }
         }
