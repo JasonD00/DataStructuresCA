@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
 import scheduler.Patient;
 
 /*
@@ -25,10 +28,13 @@ import scheduler.Patient;
 public class PatientManager {
     private static final String File_Name = "patients.dat";
     
-        public static void saveD (LinkedList<Patient> patientList) {
+        public static void saveD (LinkedList<Patient> patientList, PriorityQueue<Patient> patientQueue, Queue<String> noShowQueue, Stack<Patient> undoStack) {
 
             try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(File_Name))) {
                 output.writeObject(patientList);
+                output.writeObject(patientQueue);
+                output.writeObject(noShowQueue);
+                output.writeObject(undoStack);
             } catch (IOException e) {
                 System.out.println("Error " + e.getMessage());
             }

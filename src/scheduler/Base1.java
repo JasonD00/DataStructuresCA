@@ -652,10 +652,11 @@ public class Base1 extends javax.swing.JFrame {
         LinkedList<Patient> patientList = new LinkedList<>();
         
        patientList.add(new Patient("John Dee", 25, "Urgent", false ));
-       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
-       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
-       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
-       patientList.add(new Patient("John Dee", 25, "Urgent", false ));
+       patientList.add(new Patient("Josh Boyne", 22, "Minor", true ));
+       patientList.add(new Patient("Sam Lee", 67, "Urgent", true ));
+       patientList.add(new Patient("Ryan Sher", 20, "Minor", false ));
+       patientList.add(new Patient("Ciara Park", 45, "Urgent", false ));
+       
         
         
        PatientManager.saveD(patientList);
