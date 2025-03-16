@@ -4,6 +4,10 @@
  */
 package scheduler;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -16,14 +20,15 @@ import scheduler.PatientManager;
  *
  * @author Jason
  */
-public class Base1 extends javax.swing.JFrame {
+public class Main extends javax.swing.JFrame {
 
     /**
      * Creates new form Base1
      */
-    public Base1() {
+    public Main() {
         initComponents();
         loadA();
+        loadByPrior();
       PatientListP.setVisible(false);
        RegisterP.setVisible(false);
         SchedulingP.setVisible(false);
@@ -64,14 +69,14 @@ public class Base1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        registerName = new javax.swing.JTextField();
+        registerAge = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         Stylebar4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         returnRegisterP = new javax.swing.JLabel();
@@ -80,9 +85,14 @@ public class Base1 extends javax.swing.JFrame {
         AdminP = new javax.swing.JPanel();
         SchedulingP = new javax.swing.JPanel();
         PatientListP = new javax.swing.JPanel();
+        returnPatientListB = new javax.swing.JLabel();
         Stylebar2 = new javax.swing.JPanel();
         Stylebar3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        PriorT = new javax.swing.JTable();
+        jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -307,17 +317,9 @@ public class Base1 extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Room:");
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("jTextField1");
+        registerName.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.setText("jTextField4");
+        registerAge.setBackground(new java.awt.Color(204, 204, 204));
 
         jList2.setBackground(new java.awt.Color(204, 204, 204));
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
@@ -330,6 +332,12 @@ public class Base1 extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
+
+        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urgent", "Medium", "Minor" }));
+
+        jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "true", "false", " " }));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -346,13 +354,14 @@ public class Base1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1))
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(26, 26, 26)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(45, 45, 45))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,8 +369,8 @@ public class Base1 extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(registerAge, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerName, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
@@ -375,19 +384,19 @@ public class Base1 extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(registerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(registerAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
@@ -479,6 +488,14 @@ public class Base1 extends javax.swing.JFrame {
         PatientListP.setBackground(new java.awt.Color(255, 204, 204));
         PatientListP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        returnPatientListB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/left-arrow.png"))); // NOI18N
+        returnPatientListB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnPatientListBMouseClicked(evt);
+            }
+        });
+        PatientListP.add(returnPatientListB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         Stylebar2.setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout Stylebar2Layout = new javax.swing.GroupLayout(Stylebar2);
@@ -496,28 +513,71 @@ public class Base1 extends javax.swing.JFrame {
 
         Stylebar3.setBackground(new java.awt.Color(51, 51, 51));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Patient Priority");
+
         javax.swing.GroupLayout Stylebar3Layout = new javax.swing.GroupLayout(Stylebar3);
         Stylebar3.setLayout(Stylebar3Layout);
         Stylebar3Layout.setHorizontalGroup(
             Stylebar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 960, Short.MAX_VALUE)
+            .addGroup(Stylebar3Layout.createSequentialGroup()
+                .addGap(376, 376, 376)
+                .addComponent(jLabel9)
+                .addContainerGap(455, Short.MAX_VALUE))
         );
         Stylebar3Layout.setVerticalGroup(
             Stylebar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(Stylebar3Layout.createSequentialGroup()
+                .addComponent(jLabel9)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         PatientListP.add(Stylebar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 30));
+
+        PriorT.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(PriorT);
+
+        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         PatientListP.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 800, 440));
@@ -622,6 +682,11 @@ public class Base1 extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_returnRegisterPMouseClicked
 
+    private void returnPatientListBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnPatientListBMouseClicked
+        PatientListP.setVisible(false);
+     Home.setVisible(true);
+    }//GEN-LAST:event_returnPatientListBMouseClicked
+
     //Load data from LL into the Jtable on home
     private void loadA() {
         Object [] result = PatientManager.loadD(); //grabbing the patient list from dat
@@ -647,6 +712,42 @@ public class Base1 extends javax.swing.JFrame {
     
     }
     
+    //Loads patient data from dat file
+     private void loadByPrior() {
+         Object[] result = PatientManager.loadD(); //retrieve saved data (the patients)
+
+         
+    if (result[1] instanceof PriorityQueue) {
+        PriorityQueue<Patient> patientQueue = (PriorityQueue<Patient>) result[1];
+
+        //debugging
+        System.out.println("order before (PriorityQueue order): " + patientQueue);
+
+      //convert to a list for sorting
+      //using collections.sort which relies on compare.to to order patients
+      //Priority Queue doesnt gaurentee sorted order only that the last removed eleemnt is at the front when removed
+        ArrayList<Patient> sortedList = new ArrayList<>(patientQueue);
+        Collections.sort(sortedList); 
+
+        //debugging, make sure compare.to is working 
+        System.out.println("order after: " + sortedList);
+
+       //clear Old data
+        DefaultTableModel model = (DefaultTableModel) PriorT.getModel();
+        model.setRowCount(0); // Clear any existing data
+
+        //Populating my JTable with Sorted Data
+        for (Patient p : sortedList) {
+            System.out.println("Adding to table: " + p);
+            Object[] row = {p.getName(), p.getAge(), p.getPriority(), p.getRoom()};
+            model.addRow(row);
+        }
+            
+        } else {
+            System.out.println("Error");// if result 1 is not PriorityQueue an error is prinetd 
+        }
+    
+    }
     /**
      * @param args the command line arguments
      */
@@ -661,7 +762,7 @@ public class Base1 extends javax.swing.JFrame {
        patientList.add(new Patient("Josh Boyne", 22, "Minor", true ));
        patientList.add(new Patient("Sam Lee", 67, "Urgent", true ));
        patientList.add(new Patient("Ryan Sher", 20, "Minor", false ));
-       patientList.add(new Patient("Ciara Park", 45, "Urgent", false ));
+       patientList.add(new Patient("Ciara Park", 45, "Medium", false ));
        
        patientQueue.addAll(patientList); // adding patients ot the priority queue
        
@@ -669,10 +770,10 @@ public class Base1 extends javax.swing.JFrame {
        PatientManager.saveD(patientList, patientQueue, noShowQueue, undoStack);
        System.out.println(" success");
 
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Base1().setVisible(true);
+                new Main().setVisible(true);
             }
         });
     }
@@ -685,6 +786,7 @@ public class Base1 extends javax.swing.JFrame {
     private javax.swing.JButton PatientListB;
     private javax.swing.JPanel PatientListP;
     private javax.swing.JButton PatientRegB;
+    private javax.swing.JTable PriorT;
     private javax.swing.JPanel RegisterP;
     private javax.swing.JButton ScheduleB;
     private javax.swing.JPanel SchedulingP;
@@ -697,6 +799,8 @@ public class Base1 extends javax.swing.JFrame {
     private javax.swing.JPanel ViewP;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -705,6 +809,7 @@ public class Base1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
@@ -715,13 +820,14 @@ public class Base1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextField registerAge;
+    private javax.swing.JTextField registerName;
+    private javax.swing.JLabel returnPatientListB;
     private javax.swing.JLabel returnRegisterP;
     // End of variables declaration//GEN-END:variables
 }
