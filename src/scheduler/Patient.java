@@ -17,6 +17,7 @@ public class Patient implements Schedule, Serializable, Comparable<Patient>{
     private String priority;
     private boolean hospitalRoom;
     
+    
         //Basic Patient details (4 parameteres)
         public Patient (String name, int age, String priority, boolean hospitalRoom) {
             this.name = name;
@@ -111,3 +112,4 @@ public String toString() {
     }
 }
 }
+ 

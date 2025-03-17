@@ -12,6 +12,8 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import scheduler.Patient;
 import scheduler.PatientManager;
@@ -75,7 +77,7 @@ public class Main extends javax.swing.JFrame {
         jList2 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        PriorityCombo = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         Stylebar4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -83,8 +85,43 @@ public class Main extends javax.swing.JFrame {
         Stylebar5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         AdminP = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        Stylebar9 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        returnRegisterP2 = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        AdminList = new javax.swing.JList<>();
+        AdminRemoveB = new javax.swing.JButton();
+        AdminUndoB = new javax.swing.JButton();
+        AdminNoShowB = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        AdminText = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        Stylebar8 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
         SchedulingP = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        Stylebar7 = new javax.swing.JPanel();
+        Stylebar6 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        returnRegisterP1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         PatientListP = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
         returnPatientListB = new javax.swing.JLabel();
         Stylebar2 = new javax.swing.JPanel();
         Stylebar3 = new javax.swing.JPanel();
@@ -93,6 +130,12 @@ public class Main extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         PriorT = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -159,7 +202,7 @@ public class Main extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Age", "Priority", "Room"
+                "Name", "Age", "Priority", "Ward"
             }
         ));
         jScrollPane1.setViewportView(AppointmentT);
@@ -323,7 +366,7 @@ public class Main extends javax.swing.JFrame {
 
         jList2.setBackground(new java.awt.Color(204, 204, 204));
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -333,8 +376,8 @@ public class Main extends javax.swing.JFrame {
 
         jButton2.setText("jButton2");
 
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urgent", "Medium", "Minor" }));
+        PriorityCombo.setBackground(new java.awt.Color(204, 204, 204));
+        PriorityCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urgent", "Medium", "Minor" }));
 
         jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "true", "false", " " }));
@@ -360,7 +403,7 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(PriorityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(45, 45, 45))
                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -392,7 +435,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PriorityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -425,9 +468,8 @@ public class Main extends javax.swing.JFrame {
         Stylebar4Layout.setHorizontalGroup(
             Stylebar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Stylebar4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(returnRegisterP)
-                .addGap(342, 342, 342)
+                .addGap(348, 348, 348)
                 .addComponent(jLabel6)
                 .addContainerGap(401, Short.MAX_VALUE))
         );
@@ -462,31 +504,382 @@ public class Main extends javax.swing.JFrame {
         RegisterP.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
         AdminP.setBackground(new java.awt.Color(0, 204, 153));
+        AdminP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout AdminPLayout = new javax.swing.GroupLayout(AdminP);
-        AdminP.setLayout(AdminPLayout);
-        AdminPLayout.setHorizontalGroup(
-            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel22.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        AdminP.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 200, 140, -1));
+
+        Stylebar9.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Admin");
+
+        returnRegisterP2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/left-arrow.png"))); // NOI18N
+        returnRegisterP2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnRegisterP2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Stylebar9Layout = new javax.swing.GroupLayout(Stylebar9);
+        Stylebar9.setLayout(Stylebar9Layout);
+        Stylebar9Layout.setHorizontalGroup(
+            Stylebar9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Stylebar9Layout.createSequentialGroup()
+                .addComponent(returnRegisterP2)
+                .addGap(348, 348, 348)
+                .addComponent(jLabel17)
+                .addContainerGap(532, Short.MAX_VALUE))
+        );
+        Stylebar9Layout.setVerticalGroup(
+            Stylebar9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Stylebar9Layout.createSequentialGroup()
+                .addGroup(Stylebar9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(returnRegisterP2)
+                    .addComponent(jLabel17))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        AdminP.add(Stylebar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 30));
+
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel21.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        AdminList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(AdminList);
+
+        AdminRemoveB.setText("Remove Patient");
+        AdminRemoveB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminRemoveBActionPerformed(evt);
+            }
+        });
+
+        AdminUndoB.setText("Undo");
+        AdminUndoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminUndoBActionPerformed(evt);
+            }
+        });
+
+        AdminNoShowB.setText("Mark (No-Show)");
+        AdminNoShowB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdminNoShowBMouseClicked(evt);
+            }
+        });
+        AdminNoShowB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminNoShowBActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setText("Patients Name:");
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel18.setText("No-Shows");
+
+        jLabel19.setText("Add patients to the No-Shows list.");
+
+        jLabel20.setText("Remove a patient by name if necessary.");
+
+        jLabel21.setText("Undo if a mistake is made.");
+
+        jLabel22.setText("All No-Shows are subject to rescheduling from the Scheduling Page");
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(AdminText, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(AdminNoShowB))
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addComponent(AdminUndoB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AdminRemoveB, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(214, 214, 214)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(29, 29, 29))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AdminText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AdminNoShowB))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel21)
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AdminUndoB)
+                            .addComponent(AdminRemoveB))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel22))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        AdminP.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 800, 440));
+
+        jPanel19.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 21, Short.MAX_VALUE)
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        AdminP.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 200, -1, 20));
+
+        Stylebar8.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout Stylebar8Layout = new javax.swing.GroupLayout(Stylebar8);
+        Stylebar8.setLayout(Stylebar8Layout);
+        Stylebar8Layout.setHorizontalGroup(
+            Stylebar8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 960, Short.MAX_VALUE)
         );
-        AdminPLayout.setVerticalGroup(
-            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+        Stylebar8Layout.setVerticalGroup(
+            Stylebar8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout SchedulingPLayout = new javax.swing.GroupLayout(SchedulingP);
-        SchedulingP.setLayout(SchedulingPLayout);
-        SchedulingPLayout.setHorizontalGroup(
-            SchedulingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        AdminP.add(Stylebar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/HelpD.jpg"))); // NOI18N
+        AdminP.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
+
+        SchedulingP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel18.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 21, Short.MAX_VALUE)
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        SchedulingP.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 200, -1, 20));
+
+        jPanel17.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        SchedulingP.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 20));
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel16.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        jPanel23.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/books-stack-of-three (1).png"))); // NOI18N
+        jLabel23.setToolTipText("Click here to go to Schedule");
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+        jPanel23.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel24.setText("Go To Admin Controls");
+        jPanel23.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(466, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        SchedulingP.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 800, 440));
+
+        Stylebar7.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout Stylebar7Layout = new javax.swing.GroupLayout(Stylebar7);
+        Stylebar7.setLayout(Stylebar7Layout);
+        Stylebar7Layout.setHorizontalGroup(
+            Stylebar7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 960, Short.MAX_VALUE)
         );
-        SchedulingPLayout.setVerticalGroup(
-            SchedulingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+        Stylebar7Layout.setVerticalGroup(
+            Stylebar7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
+
+        SchedulingP.add(Stylebar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
+
+        Stylebar6.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Scheduling");
+
+        returnRegisterP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/left-arrow.png"))); // NOI18N
+        returnRegisterP1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnRegisterP1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Stylebar6Layout = new javax.swing.GroupLayout(Stylebar6);
+        Stylebar6.setLayout(Stylebar6Layout);
+        Stylebar6Layout.setHorizontalGroup(
+            Stylebar6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Stylebar6Layout.createSequentialGroup()
+                .addComponent(returnRegisterP1)
+                .addGap(348, 348, 348)
+                .addComponent(jLabel14)
+                .addContainerGap(494, Short.MAX_VALUE))
+        );
+        Stylebar6Layout.setVerticalGroup(
+            Stylebar6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Stylebar6Layout.createSequentialGroup()
+                .addGroup(Stylebar6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(returnRegisterP1)
+                    .addComponent(jLabel14))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        SchedulingP.add(Stylebar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 30));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/HelpD.jpg"))); // NOI18N
+        SchedulingP.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
         PatientListP.setBackground(new java.awt.Color(255, 204, 204));
         PatientListP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel14.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        PatientListP.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 200, 20, 20));
+
+        jPanel13.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        PatientListP.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 20));
 
         returnPatientListB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/left-arrow.png"))); // NOI18N
         returnPatientListB.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -535,6 +928,7 @@ public class Main extends javax.swing.JFrame {
 
         PatientListP.add(Stylebar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 30));
 
+        PriorT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PriorT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -543,9 +937,11 @@ public class Main extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "Age", "Priority", "Ward"
             }
         ));
+        PriorT.setOpaque(false);
+        PriorT.setShowGrid(false);
         jScrollPane4.setViewportView(PriorT);
 
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
@@ -561,23 +957,87 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/BackG.jpg"))); // NOI18N
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel12.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/books-stack-of-three (1).png"))); // NOI18N
+        jLabel11.setToolTipText("Click here to go to Schedule");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+        jPanel12.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setText("Go To Schedule");
+        jPanel12.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(7, Short.MAX_VALUE))
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         PatientListP.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 800, 440));
@@ -687,14 +1147,143 @@ public class Main extends javax.swing.JFrame {
      Home.setVisible(true);
     }//GEN-LAST:event_returnPatientListBMouseClicked
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+         PatientListP.setVisible(false);
+     SchedulingP.setVisible(true);
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void returnRegisterP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnRegisterP1MouseClicked
+       SchedulingP.setVisible(false);
+     Home.setVisible(true);
+    }//GEN-LAST:event_returnRegisterP1MouseClicked
+
+    private void returnRegisterP2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnRegisterP2MouseClicked
+         AdminP.setVisible(false);
+     Home.setVisible(true);
+    }//GEN-LAST:event_returnRegisterP2MouseClicked
+
+    
+    //local variables so I can load data
+   private Queue<String> noShowQueue = new LinkedList<>(); 
+private DefaultListModel<String> listModel = new DefaultListModel<>(); 
+private LinkedList<Patient> patientList = new LinkedList<>();
+
+
+    
+    private void AdminNoShowBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminNoShowBMouseClicked
+    String patientName = AdminText.getText().trim(); //get text from textfield on Admin
+
+    if (!patientName.isEmpty()) {
+        boolean patientFound = false;
+
+        System.out.println("Searching for patient: " + patientName);//debugging
+
+        for (Patient p : patientList) { 
+            System.out.println("Checking against: " + p.getName());//debugging
+
+            if (p.getName().equalsIgnoreCase(patientName)) { //shouldnt be case sensityive 
+             
+                noShowQueue.add(patientName); //add patients to my no show queue
+                listModel.addElement(patientName); 
+                AdminList.setModel(listModel); //updating my AdminList
+                patientFound = true;
+                System.out.println("Patient found and marked as no-show: " + patientName); 
+                break;
+            }
+        }
+
+        if (!patientFound) {
+            System.out.println("Patient NOT found in list."); 
+            JOptionPane.showMessageDialog(this, "Patient not found in records.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            AdminText.setText(""); //clear text field
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Enter a patient name.", "Input Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+
+
+
+    }//GEN-LAST:event_AdminNoShowBMouseClicked
+private Stack<Patient> undoStack = new Stack<>();
+
+
+    private void AdminUndoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminUndoBActionPerformed
+   if (!undoStack.isEmpty()) {
+        Patient res = undoStack.pop(); //get last removed patient
+        
+        //Undo last p to patientList
+        patientList.add(res);
+        
+        //undo back to AdminList
+        listModel.addElement(res.getName()); 
+        AdminList.setModel(listModel); //update the lsit
+        
+        System.out.println("Undo successful: " + res.getName()); 
+    } else {
+        JOptionPane.showMessageDialog(this, "Nothing to undo.", "Undo Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_AdminUndoBActionPerformed
+
+    private void AdminRemoveBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminRemoveBActionPerformed
+  String patientName = AdminText.getText().trim(); //user input here
+
+    if (!patientName.isEmpty()) { //make sure a name is entered 
+        boolean patientFound = false;
+        Patient removedPatient = null;
+
+        System.out.println("Searching for patient to remove: " + patientName); //debugging
+
+        //go through the linekd lst
+        for (Patient p : patientList) { 
+            if (p.getName().equalsIgnoreCase(patientName)) { //case deosnt matter 
+                removedPatient = p;
+                patientFound = true;
+                break; //stops searching after finding patient
+            }
+        }
+
+        if (patientFound && removedPatient != null) { //makse sure the patient is found
+            //stores patient in the undo stack
+            undoStack.push(removedPatient);
+            
+            //remove the patient
+            patientList.remove(removedPatient);
+            
+            //remove from adminList in AdminControls
+            listModel.removeElement(patientName); 
+            AdminList.setModel(listModel); 
+            
+            //More debugging
+            System.out.println("Patient removed: " + patientName); 
+        } else {
+            JOptionPane.showMessageDialog(this, "Patient not found in records.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        AdminText.setText(""); 
+    } else {
+        JOptionPane.showMessageDialog(this, "Enter a patient name.", "Input Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_AdminRemoveBActionPerformed
+
+    private void AdminNoShowBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminNoShowBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdminNoShowBActionPerformed
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+       SchedulingP.setVisible(false);
+         AdminP.setVisible(true);
+    }//GEN-LAST:event_jLabel23MouseClicked
+private PriorityQueue<Patient> patientQueue = new PriorityQueue<>();
+
     //Load data from LL into the Jtable on home
     private void loadA() {
-        Object [] result = PatientManager.loadD(); //grabbing the patient list from dat
-        
-        //check here if result 0 is our linked list 
-        if (result[0] instanceof LinkedList) {
-            LinkedList<Patient>  patientList = (LinkedList<Patient>) result[0];
-            
+       Object[] result = PatientManager.loadD(); // Retrieve saved data
+
+    if (result[0] instanceof LinkedList) {
+        //Added a fix here main allready loaded patientList(both seperate), prevoiuus code creatd a local var where I couldnt search patients in the admin panel
+        this.patientList = (LinkedList<Patient>) result[0];  
             //for adding to the table and make sure it can be populated with new updated data 
             DefaultTableModel model = (DefaultTableModel) AppointmentT.getModel();
             model.setRowCount(0); //clear any existing data
@@ -732,7 +1321,7 @@ public class Main extends javax.swing.JFrame {
         //debugging, make sure compare.to is working 
         System.out.println("order after: " + sortedList);
 
-       //clear Old data
+       
         DefaultTableModel model = (DefaultTableModel) PriorT.getModel();
         model.setRowCount(0); // Clear any existing data
 
@@ -744,7 +1333,7 @@ public class Main extends javax.swing.JFrame {
         }
             
         } else {
-            System.out.println("Error");// if result 1 is not PriorityQueue an error is prinetd 
+            System.out.println("Error");// if result 1 is not PriorityQueue an error is printed 
         }
     
     }
@@ -763,8 +1352,11 @@ public class Main extends javax.swing.JFrame {
        patientList.add(new Patient("Sam Lee", 67, "Urgent", true ));
        patientList.add(new Patient("Ryan Sher", 20, "Minor", false ));
        patientList.add(new Patient("Ciara Park", 45, "Medium", false ));
+        patientList.add(new Patient("Frank G", 17, "Medium", false ));
+       patientList.add(new Patient("Cassandra Web", 23, "Minor", true ));
+       patientList.add(new Patient("Tom P", 99, "Medium", false ));
        
-       patientQueue.addAll(patientList); // adding patients ot the priority queue
+       patientQueue.addAll(patientList); // adding patients to the priority queue
        
         //Saving data to the dat file
        PatientManager.saveD(patientList, patientQueue, noShowQueue, undoStack);
@@ -780,13 +1372,19 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdminB;
+    private javax.swing.JList<String> AdminList;
+    private javax.swing.JButton AdminNoShowB;
     private javax.swing.JPanel AdminP;
+    private javax.swing.JButton AdminRemoveB;
+    private javax.swing.JTextField AdminText;
+    private javax.swing.JButton AdminUndoB;
     private javax.swing.JTable AppointmentT;
     private javax.swing.JPanel Home;
     private javax.swing.JButton PatientListB;
     private javax.swing.JPanel PatientListP;
     private javax.swing.JButton PatientRegB;
     private javax.swing.JTable PriorT;
+    private javax.swing.JComboBox<String> PriorityCombo;
     private javax.swing.JPanel RegisterP;
     private javax.swing.JButton ScheduleB;
     private javax.swing.JPanel SchedulingP;
@@ -796,13 +1394,31 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Stylebar3;
     private javax.swing.JPanel Stylebar4;
     private javax.swing.JPanel Stylebar5;
+    private javax.swing.JPanel Stylebar6;
+    private javax.swing.JPanel Stylebar7;
+    private javax.swing.JPanel Stylebar8;
+    private javax.swing.JPanel Stylebar9;
     private javax.swing.JPanel ViewP;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -813,7 +1429,21 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -825,9 +1455,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField registerAge;
     private javax.swing.JTextField registerName;
     private javax.swing.JLabel returnPatientListB;
     private javax.swing.JLabel returnRegisterP;
+    private javax.swing.JLabel returnRegisterP1;
+    private javax.swing.JLabel returnRegisterP2;
     // End of variables declaration//GEN-END:variables
 }
