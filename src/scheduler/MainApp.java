@@ -28,14 +28,16 @@ import scheduler.PatientManager;
  *
  * @author Jason
  */
-public class Main extends javax.swing.JFrame {
+public class MainApp extends javax.swing.JFrame {
+private AdminControls adminControls = new AdminControls();
 
    
-    public Main() {
+    public MainApp() {
         initComponents();
         loadA();
         loadByPrior();
         loadC();
+        
       PatientListP.setVisible(false);
   
         SchedulingP.setVisible(false);
@@ -474,9 +476,9 @@ public class Main extends javax.swing.JFrame {
                         .addGap(214, 214, 214)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addGap(29, 29, 29))
+                    .addComponent(jLabel18)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1509,6 +1511,9 @@ private Stack<Patient> undoStack = new Stack<>();
       CheckIn.setVisible(true);
     }//GEN-LAST:event_CheckBActionPerformed
 
+  
+    
+   
     
     private PriorityQueue<Patient> patientQueue = new PriorityQueue<>();
 
@@ -1625,7 +1630,7 @@ private Stack<Patient> undoStack = new Stack<>();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new MainApp().setVisible(true);
             }
         });
     }

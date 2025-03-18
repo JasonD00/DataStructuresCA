@@ -16,5 +16,6 @@ public interface Manager {
         void trackNoShows(String name); //Track the no shows
         void saveD(); //save data to dat file
         void loadD(); //remove data from dat file
+      
     
 }
