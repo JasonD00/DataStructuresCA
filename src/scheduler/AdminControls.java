@@ -4,6 +4,8 @@
  */
 package scheduler;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -27,7 +29,9 @@ public class AdminControls implements Manager{
         this.undoStack = (Stack<Patient>) data[3];
                 
     }
-
+    
+    
+  
     //Here I want to remove a patient and store them in an undo stack
     @Override
     public void removePatient(String name) { //I am taking string (name) and removing it

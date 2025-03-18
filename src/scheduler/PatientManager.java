@@ -37,6 +37,7 @@ public class PatientManager {
                 output.writeObject(patientQueue);
                 output.writeObject(noShowQueue);
                 output.writeObject(undoStack);
+                System.out.println("Data successfully saved to " + File_Name);
             } catch (IOException e) {
                 System.out.println("Error " + e.getMessage());
             }
@@ -47,29 +48,31 @@ public class PatientManager {
                 //loading from the file
         public static Object[] loadD() {
              File file = new File(File_Name);
-    if (!file.exists()) {
-        System.out.println("No save");
-        return new Object[]{new LinkedList<>(), new PriorityQueue<>(), new LinkedList<>(), new Stack<>()};
-    }
-//tidying up code and adding debug stack to fix issues with patientQueue
-//reading serialized objects froma file 
-    try (ObjectInputStream obIn = new ObjectInputStream(new FileInputStream(File_Name))) {
-        LinkedList<Patient> loadedPatientList = (LinkedList<Patient>) obIn.readObject();
-        PriorityQueue<Patient> loadedPatientQueue = (PriorityQueue<Patient>) obIn.readObject();
-        Queue<String> loadedNoShowQueue = (Queue<String>) obIn.readObject();
-        Stack<Patient> loadedUndoStack = (Stack<Patient>) obIn.readObject();
+             
+        if (!file.exists()) {
+            System.out.println("No save");
+            return new Object[]{new LinkedList<>(), new PriorityQueue<>(), new LinkedList<>(), new Stack<>()};
+        }
+        System.out.println("Loading data from file. File size: " + file.length() + " bytes");//data being read had to make sure via debug
+    //tidying up code and adding debug stack to fix issues with patientQueue
+    //reading serialized objects froma file 
+        try (ObjectInputStream obIn = new ObjectInputStream(new FileInputStream(File_Name))) {
+            LinkedList<Patient> loadedPatientList = (LinkedList<Patient>) obIn.readObject();
+            PriorityQueue<Patient> loadedPatientQueue = (PriorityQueue<Patient>) obIn.readObject();
+            Queue<String> loadedNoShowQueue = (Queue<String>) obIn.readObject();
+            Stack<Patient> loadedUndoStack = (Stack<Patient>) obIn.readObject();
 
-        //debugging, printing loaded data, dont change had to be fixed 3 times due to non loading data
-        System.out.println("Data loaded:");
-        System.out.println("Patients List: " + loadedPatientList);
-        System.out.println("Priority Queue: " + loadedPatientQueue);
-        System.out.println("No-Show Queue: " + loadedNoShowQueue);
-        System.out.println("Undo Stack: " + loadedUndoStack);
+            //debugging, printing loaded data, dont change had to be fixed 3 times due to non loading data
+            System.out.println("Data loaded:");
+            System.out.println("Patients List: " + loadedPatientList);
+            System.out.println("Priority Queue: " + loadedPatientQueue);
+            System.out.println("No-Show Queue: " + loadedNoShowQueue);
+            System.out.println("Undo Stack: " + loadedUndoStack);
 
-        return new Object[]{loadedPatientList, loadedPatientQueue, loadedNoShowQueue, loadedUndoStack};
-    } catch (IOException | ClassNotFoundException e) {
-        System.out.println("Error: " + e.getMessage());
-        return new Object[]{new LinkedList<>(), new PriorityQueue<>(), new LinkedList<>(), new Stack<>()};
-    }
+            return new Object[]{loadedPatientList, loadedPatientQueue, loadedNoShowQueue, loadedUndoStack};
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error: " + e.getMessage());
+            return new Object[]{new LinkedList<>(), new PriorityQueue<>(), new LinkedList<>(), new Stack<>()};
+        }
         }
 }

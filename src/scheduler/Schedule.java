@@ -14,5 +14,4 @@ public interface Schedule {
    void scheduleTest(); //schedule a test
    void updatePriority(String newPrior); //Updating the priority of a test
    void cancelTest(); //Canceling a test
-   void rescheduleTest(); //reschedule a test
 }

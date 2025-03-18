@@ -16,42 +16,42 @@ public class Patient implements Schedule, Serializable, Comparable<Patient>{
     private int age;
     private String priority;
     private boolean hospitalRoom;
+    private String GP;
     
     
         //Basic Patient details (4 parameteres)
-        public Patient (String name, int age, String priority, boolean hospitalRoom) {
+        public Patient (String name, int age, String priority, boolean hospitalRoom, String GP) {
             this.name = name;
             this.age = age;
             this.priority = priority; //Urgent, Medium, Minor
             this.hospitalRoom = hospitalRoom;
+            this.GP = GP;
         }
 
-    //placehlder methods for now might add getdetails to patient attributes later 
+     
     @Override
     public void scheduleTest() {
-       System.out.println(name + " has been updated for a blood test.");
+       System.out.println( "Updated for a blood test.");
     }
 
     @Override
     public void updatePriority(String newPrior) {
         this.priority = newPrior;
-         System.out.println(name + " priority has been updated to " + newPrior);
+         System.out.println("Priority has been updated.");
     }
 
     @Override
     public void cancelTest() {
-       System.out.println(name + " has canceled their test.");
+       System.out.println("Test Cancelled.");
     }
 
-    @Override
-    public void rescheduleTest() {
-        System.out.println(name + " has been resheduled");
-    }
+   
     
     //added a toString as my debugg statment showed the data wasnt loading for the priority queue properly just showed symbols
     @Override
 public String toString() {
-    return "Patient{name='" + name + "', age=" + age + ", priority='" + priority + "', hospitalRoom=" + hospitalRoom + "}";
+    return "Patient{name='" + name + "', age=" + age + ", priority='" + priority + "', hospitalRoom=" + hospitalRoom + "', GP=" + GP  +"}";
+
 }
     
     // Getter methods to retrieve the patients details
@@ -67,6 +67,9 @@ public String toString() {
     public boolean getRoom() {
         return hospitalRoom;
     }
+    
+    public String getGP() {
+        return GP;}
 
     
     //Compare method must return -1 for highets priority
