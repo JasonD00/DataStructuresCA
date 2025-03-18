@@ -11,21 +11,23 @@ import java.io.Serializable;
  * @author Jason
  */
 //The Patient class, implements the schedule and is made serializable for file storage in realtion to my dat file
-public class Patient implements Schedule, Serializable, Comparable<Patient>{
+public class Patient implements Schedule, Serializable, Comparable<Patient>, CheckIn{
     private String name;
     private int age;
     private String priority;
     private boolean hospitalRoom;
     private String GP;
+    private boolean Checked;
     
     
         //Basic Patient details (4 parameteres)
-        public Patient (String name, int age, String priority, boolean hospitalRoom, String GP) {
+        public Patient (String name, int age, String priority, boolean hospitalRoom, String GP, boolean Checked) {
             this.name = name;
             this.age = age;
             this.priority = priority; //Urgent, Medium, Minor
             this.hospitalRoom = hospitalRoom;
             this.GP = GP;
+            this.Checked = Checked;
         }
 
      
@@ -50,7 +52,7 @@ public class Patient implements Schedule, Serializable, Comparable<Patient>{
     //added a toString as my debugg statment showed the data wasnt loading for the priority queue properly just showed symbols
     @Override
 public String toString() {
-    return "Patient{name='" + name + "', age=" + age + ", priority='" + priority + "', hospitalRoom=" + hospitalRoom + "', GP=" + GP  +"}";
+    return "Patient{name='" + name + "', age=" + age + ", priority='" + priority + "', hospitalRoom=" + hospitalRoom + "', GP=" + GP  + "', Checked=" + Checked  +"}";
 
 }
     
@@ -68,8 +70,14 @@ public String toString() {
         return hospitalRoom;
     }
     
+   
+    
     public String getGP() {
         return GP;}
+    
+      public boolean getChecked() {
+        return Checked;
+    }
 
     
     //Compare method must return -1 for highets priority
@@ -114,5 +122,16 @@ public String toString() {
             return Integer.MAX_VALUE;  
     }
 }
+
+    //checking if a patient has checked in 
+    @Override
+    public void check() {
+         if (this.Checked) {
+        System.out.println(name + " is already checked in.");
+    } else {
+        this.Checked = true;
+        System.out.println(name + " has checked in successfully.");
+    }
+    }
 }
  

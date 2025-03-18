@@ -35,6 +35,7 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         loadA();
         loadByPrior();
+        loadC();
       PatientListP.setVisible(false);
   
         SchedulingP.setVisible(false);
@@ -58,6 +59,7 @@ public class Main extends javax.swing.JFrame {
         Home = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         PatientListB = new javax.swing.JButton();
+        CheckB = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -132,6 +134,22 @@ public class Main extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        CheckIn = new javax.swing.JPanel();
+        jPanel25 = new javax.swing.JPanel();
+        jPanel26 = new javax.swing.JPanel();
+        returnPatientListB1 = new javax.swing.JLabel();
+        Stylebar4 = new javax.swing.JPanel();
+        Stylebar5 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        checkInT = new javax.swing.JTable();
+        jPanel27 = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -154,20 +172,31 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        CheckB.setText("Check-In");
+        CheckB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
         jPanel24Layout.setHorizontalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel24Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PatientListB, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(CheckB, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PatientListB, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                 .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(PatientListB)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PatientListB)
+                    .addComponent(CheckB))
                 .addContainerGap())
         );
 
@@ -935,6 +964,190 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
         PatientListP.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
+        CheckIn.setBackground(new java.awt.Color(255, 204, 204));
+        CheckIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel25.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        CheckIn.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 200, 20, 20));
+
+        jPanel26.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        CheckIn.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 20));
+
+        returnPatientListB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/left-arrow.png"))); // NOI18N
+        returnPatientListB1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnPatientListB1MouseClicked(evt);
+            }
+        });
+        CheckIn.add(returnPatientListB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Stylebar4.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout Stylebar4Layout = new javax.swing.GroupLayout(Stylebar4);
+        Stylebar4.setLayout(Stylebar4Layout);
+        Stylebar4Layout.setHorizontalGroup(
+            Stylebar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 960, Short.MAX_VALUE)
+        );
+        Stylebar4Layout.setVerticalGroup(
+            Stylebar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        CheckIn.add(Stylebar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
+
+        Stylebar5.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Patient Priority");
+
+        javax.swing.GroupLayout Stylebar5Layout = new javax.swing.GroupLayout(Stylebar5);
+        Stylebar5.setLayout(Stylebar5Layout);
+        Stylebar5Layout.setHorizontalGroup(
+            Stylebar5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Stylebar5Layout.createSequentialGroup()
+                .addGap(376, 376, 376)
+                .addComponent(jLabel25)
+                .addContainerGap(455, Short.MAX_VALUE))
+        );
+        Stylebar5Layout.setVerticalGroup(
+            Stylebar5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Stylebar5Layout.createSequentialGroup()
+                .addComponent(jLabel25)
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        CheckIn.add(Stylebar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 30));
+
+        checkInT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        checkInT.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Name", "Has Checked In"
+            }
+        ));
+        checkInT.setOpaque(false);
+        checkInT.setShowGrid(false);
+        jScrollPane6.setViewportView(checkInT);
+
+        jPanel27.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel30.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("Has Patient Checked in:");
+        jPanel30.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        CheckIn.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 800, 440));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/HelpD.jpg"))); // NOI18N
+        jLabel8.setText("jLabel7");
+        CheckIn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -955,6 +1168,11 @@ public class Main extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(PatientListP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(CheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -973,6 +1191,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(PatientListP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(CheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -1276,6 +1499,16 @@ private Stack<Patient> undoStack = new Stack<>();
     }
     }//GEN-LAST:event_SchTMouseClicked
 
+    private void returnPatientListB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnPatientListB1MouseClicked
+      Home.setVisible(true);
+      CheckIn.setVisible(false);
+    }//GEN-LAST:event_returnPatientListB1MouseClicked
+
+    private void CheckBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBActionPerformed
+      Home.setVisible(false);
+      CheckIn.setVisible(true);
+    }//GEN-LAST:event_CheckBActionPerformed
+
     
     private PriorityQueue<Patient> patientQueue = new PriorityQueue<>();
 
@@ -1293,6 +1526,29 @@ private Stack<Patient> undoStack = new Stack<>();
             //adding data from the patient list
             for (Patient p : patientList) {
                 Object[] row = {p.getName(), p.getAge(), p.getPriority(), p.getRoom()};
+                model.addRow(row);
+            }
+            
+            
+        } else {
+            System.out.println("Error");
+        }
+    
+    }
+    
+     private void loadC() {
+       Object[] result = PatientManager.loadD(); // Retrieve saved data
+
+    if (result[0] instanceof LinkedList) {
+        //Added a fix here main allready loaded patientList(both seperate), prevoiuus code creatd a local var where I couldnt search patients in the admin panel
+        this.patientList = (LinkedList<Patient>) result[0];  
+            //for adding to the table and make sure it can be populated with new updated data 
+            DefaultTableModel model = (DefaultTableModel) checkInT.getModel();
+            model.setRowCount(0); //clear any existing data
+            
+            //adding data from the patient list
+            for (Patient p : patientList) {
+                Object[] row = {p.getName(), p.getChecked()};
                 model.addRow(row);
             }
             
@@ -1351,14 +1607,14 @@ private Stack<Patient> undoStack = new Stack<>();
         Queue<String> noShowQueue = new LinkedList<>();
         Stack<Patient> undoStack = new Stack<>();
         
-       patientList.add(new Patient("John Dee", 25, "Urgent", false, "Dr. Carol" ));
-       patientList.add(new Patient("Josh Boyne", 22, "Minor", true, "Dr. Carol" ));
-       patientList.add(new Patient("Sam Lee", 67, "Urgent", true, "Dr. Wow" ));
-       patientList.add(new Patient("Ryan Sher", 20, "Minor", false, "Dr. Carol" ));
-       patientList.add(new Patient("Ciara Park", 45, "Medium", false, "Dr. Carol" ));
-        patientList.add(new Patient("Frank G", 17, "Medium", false, "Dr. Wow" ));
-       patientList.add(new Patient("Cassandra Web", 23, "Minor", true,"Dr. Carol" ));
-       patientList.add(new Patient("Tom P", 99, "Medium", false, "Dr. Carol" ));
+       patientList.add(new Patient("John Dee", 25, "Urgent", false, "Dr. Carol", true));
+       patientList.add(new Patient("Josh Boyne", 22, "Minor", true, "Dr. Carol", true ));
+       patientList.add(new Patient("Sam Lee", 67, "Urgent", true, "Dr. Wow", true ));
+       patientList.add(new Patient("Ryan Sher", 20, "Minor", false, "Dr. Carol", true ));
+       patientList.add(new Patient("Ciara Park", 45, "Medium", false, "Dr. Carol", true ));
+        patientList.add(new Patient("Frank G", 17, "Medium", false, "Dr. Wow", true ));
+       patientList.add(new Patient("Cassandra Web", 23, "Minor", true,"Dr. Carol", true ));
+       patientList.add(new Patient("Tom P", 99, "Medium", false, "Dr. Carol", true ));
        
        patientQueue.addAll(patientList); // adding patients to the priority queue
        
@@ -1384,6 +1640,8 @@ private Stack<Patient> undoStack = new Stack<>();
     private javax.swing.JButton AdminUndoB;
     private javax.swing.JTable AppointmentT;
     private javax.swing.JComboBox<String> CancelCombo;
+    private javax.swing.JButton CheckB;
+    private javax.swing.JPanel CheckIn;
     private javax.swing.JPanel Home;
     private javax.swing.JButton PatientListB;
     private javax.swing.JPanel PatientListP;
@@ -1398,12 +1656,15 @@ private Stack<Patient> undoStack = new Stack<>();
     private javax.swing.JPanel Stylebar1;
     private javax.swing.JPanel Stylebar2;
     private javax.swing.JPanel Stylebar3;
+    private javax.swing.JPanel Stylebar4;
+    private javax.swing.JPanel Stylebar5;
     private javax.swing.JPanel Stylebar6;
     private javax.swing.JPanel Stylebar7;
     private javax.swing.JPanel Stylebar8;
     private javax.swing.JPanel Stylebar9;
     private javax.swing.JComboBox<String> UpdatePCombo;
     private javax.swing.JPanel ViewP;
+    private javax.swing.JTable checkInT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1420,10 +1681,13 @@ private Stack<Patient> undoStack = new Stack<>();
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
@@ -1443,16 +1707,25 @@ private Stack<Patient> undoStack = new Stack<>();
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel returnAdmin;
     private javax.swing.JLabel returnPatientListB;
+    private javax.swing.JLabel returnPatientListB1;
     private javax.swing.JLabel returnRegisterP1;
     // End of variables declaration//GEN-END:variables
 }
